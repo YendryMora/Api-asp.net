@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html{
+    background:url('../black.jpg');
+}
+body{
+    font-family: sans-serif; 
+}
+a{
+    text-decoration: none;
+}
+
+.contenedor{
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contenedor_tarjeta{
+    margin:20px;
+    border-radius: 10px 10px 10px 10px;
+}
+.contenedor_tarjeta a{
+    display: inline-block;
+}
+
+.contenedor_tarjeta:hover figure{
+    -webkit-transform: perspective(600px) rotateY(180deg) ;
+    -ms-transform: perspective(600px) rotateY(180deg) ;
+    -o-transform: perspective(600px) rotateY(180deg) ;
+    transform: perspective(600px) rotateY(180deg);
+
+    -webkit-box-shadow: 10px 10px 12px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 12px 3px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 12px 3px rgba(0,0,0,0.75);
+}
+.contenedor_tarjeta:hover figure img{
+    filter: blur(2px);
+}
+figure{
+    width: 300px;
+    height: 350px;
+    margin: 0px;
+    position: relative;
+    transition: all ease 1s;
+    transform-style: preserve-3d;
+    transform: perspective(600px) rotateY(0deg);
+}
+
+figure .frontal,
+figure .trasera{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    transition: all ease 1s;
+}
+
+figure .frontal{
+display: block;
+/*backface-visibility: visible;*/
+}
+
+figure .trasera{
+    position: absolute;
+    top: 0px;
+    padding: 20px;
+    transform: perspective(600px) rotateY(180deg);
+    backface-visibility: hidden;
+    overflow: auto;
+
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,230,199,0.95) 23%, rgba(255,145,10,0.8) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(23%, rgba(255,230,199,0.95)), color-stop(100%, rgba(255,145,10,0.8)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,230,199,0.95) 23%, rgba(255,145,10,0.8) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,230,199,0.95) 23%, rgba(255,145,10,0.8) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,230,199,0.95) 23%, rgba(255,145,10,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,230,199,0.95) 23%, rgba(255,145,10,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ff910a', GradientType=0 );
+}
+
+figure .trasera h2{
+    color: black;
+    font-weight: normal;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    font-size: 24px;
+}
+figure .trasera hr{
+    height: 2px;
+    background: #fff;
+    border: none;
+    margin-bottom: 10px;
+
+}
+figure .trasera p{
+    color: black;
+    font-family: sans-serif;
+    line-height: 22px;
+    font-size: 16px;
+}
+@media screen and (max-width: 992px){
+    figure .trasera{
+        backface-visibility: visible;
+        transform: perspective(600px) rotateY(0deg);
+    }
+    .contenedor_tarjeta:hover figure{
+        transform: perspective(600px) rotateY(0deg);
+    }
+}
+
+
